@@ -2,9 +2,9 @@
 <template>
     <div class="header-container">
         <div class="header-nav">
-            <li @click="changeLeft">基础</li>
+            <li @click="changeLeft">前端基础</li>
             <li @click="changeLeft">前端独立</li>
-            <li @click="changeLeft">插件</li>
+            <li @click="changeLeft">第三方插件</li>
         </div>
     </div>
 </template>
