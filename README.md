@@ -1,5 +1,5 @@
 ## Requirement
-*安装nodeJs，版本要求6.10.x
+* 安装nodeJs，版本要求6.10.x
 
 ## Start the development server:
 ```bash
