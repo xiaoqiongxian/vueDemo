@@ -5,6 +5,9 @@ import App from './app.vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 import axios from 'axios';
+import commonUtil from './util/util.js';
+
+Vue.use(commonUtil);
 
 Vue.use(VueRouter);
 const router = new VueRouter(require('./router'))

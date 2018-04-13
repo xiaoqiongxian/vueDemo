@@ -41,7 +41,7 @@
                        ],
                 menu:
                     {
-                        "基础":
+                        "前端基础":
                         [
                             { "id": "M1", "name": "html", "url": "", "menulist":
                                 [
@@ -89,7 +89,7 @@
                               }
                        ],
                     
-                        "插件":
+                        "第三方插件":
                         [
                              { "id": "M7", "name": "拓扑图", "url": "", "menulist":
                                  [
@@ -112,12 +112,6 @@
             this.$root.Bus.$on("changeLeftMenu",data => {
                 _self.menuList = _self.menu[data];
             });
-        },
-        mounted:function(){
-             
-        },
-        computed: {
-           
         },
         watch: {
             
