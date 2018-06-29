@@ -2,7 +2,10 @@
     <div class="leftMenuContainer">  
         <li v-for="(item,key) in menuList">
             <span class="first-nav-item">{{item.name}}</span>
-            <ul class="second-nav-group" v-for="(data,index) in item.menulist">
+            <ul @click="selectLeftNav(data.name)" 
+                :class="selectedLeftNav===data.name?'active':''" 
+                class="second-nav-group" 
+                v-for="(data,index) in item.menulist">
                 <li>
                     <a :href="data.url" class=''>{{data.name}}</a>
                 </li>
@@ -16,91 +19,67 @@
         data() {
             let _self = this;
             return {
+                selectedLeftNav:"javascript",
                 menuList:[
-                            { "id": "M1", "name": "html", "url": "", "menulist":
+                            { "id": "M1", "name": _self.$t("message.leftNav.base"), "url": "", "menulist":
                                 [
-                                    { "id": "M11", "name": _self.$t("message.hello"), "url": "#/pageOne", "menulist":""},
-                                    { "id": "M12", "name": "布局", "url": "#/pageTwo", "menulist": "" },
-                                    { "id": "M13", "name": "本地存储", "url": "", "menulist": "" }
+                                    { "id": "M11", "name": "javascript", "url": "#/pageOne", "menulist":""},
+                                    { "id": "M12", "name": "HTML5", "url": "#/pageTwo", "menulist": "" },
+                                    { "id": "M13", "name": "CSS3", "url": "", "menulist": "" }
                                 ]
                             },
-                            { "id": "M2", "name": "css", "url": "", "menulist": 
+                            { "id": "M2", "name": "进阶", "url": "", "menulist": 
                                 [
-                                    { "id": "M21", "name": "动画", "url": "", "menulist":""},
-                                    { "id": "M22", "name": "旋转", "url": "", "menulist": "" },
-                                    { "id": "M23", "name": "3D", "url": "", "menulist": "" }
-                                ]
-                            },
-                            { "id": "M3", "name": "js", "url": "", "menulist": 
-                                [
-                                    { "id": "M31", "name": "原生javascript", "url": "", "menulist":""},
-                                    { "id": "M32", "name": "类库", "url": "", "menulist": "" },
-                                    { "id": "M33", "name": "es6规范", "url": "", "menulist": "" }
+                                    { "id": "M21", "name": "vue.js", "url": "", "menulist":""},
+                                    { "id": "M22", "name": "react.js", "url": "", "menulist": "" },
+                                    { "id": "M23", "name": "angular.js", "url": "", "menulist": "" }
                                 ]
                             }
                        ],
                 menu:
                     {
-                        "前端基础":
+                        "前端":
                         [
-                            { "id": "M1", "name": "html", "url": "", "menulist":
+                            { "id": "M1", "name": _self.$t("message.leftNav.base"), "url": "", "menulist":
                                 [
-                                    { "id": "M11", "name": "语义化", "url": "#/pageOne", "menulist":""},
-                                    { "id": "M12", "name": "布局", "url": "#/pageTwo", "menulist": "" },
-                                    { "id": "M13", "name": "本地存储", "url": "", "menulist": "" }
+                                    { "id": "M11", "name": "javascript", "url": "#/pageOne", "menulist":""},
+                                    { "id": "M12", "name": "HTML5", "url": "#/pageTwo", "menulist": "" },
+                                    { "id": "M13", "name": "CSS3", "url": "", "menulist": "" }
                                 ]
                             },
-                            { "id": "M2", "name": "css", "url": "", "menulist": 
+                            { "id": "M2", "name": "进阶", "url": "", "menulist": 
                                 [
-                                    { "id": "M21", "name": "动画", "url": "", "menulist":""},
-                                    { "id": "M22", "name": "旋转", "url": "", "menulist": "" },
-                                    { "id": "M23", "name": "3D", "url": "", "menulist": "" }
-                                ]
-                            },
-                            { "id": "M3", "name": "js", "url": "", "menulist": 
-                                [
-                                    { "id": "M31", "name": "原生javascript", "url": "", "menulist":""},
-                                    { "id": "M32", "name": "类库", "url": "", "menulist": "" },
-                                    { "id": "M33", "name": "es6规范", "url": "", "menulist": "" }
+                                    { "id": "M21", "name": "vue.js", "url": "", "menulist":""},
+                                    { "id": "M22", "name": "react.js", "url": "", "menulist": "" },
+                                    { "id": "M23", "name": "angular.js", "url": "", "menulist": "" }
                                 ]
                             }
                        ],
                     
-                        "前端独立":
+                        "后端":
                         [
-                             { "id": "M4", "name": "vue", "url": "", "menulist":
+                             { "id": "M4", "name": "基础", "url": "", "menulist":
                                  [
-                                      { "id": "M41", "name": "vue-router", "url": "", "menulist":""},
-                                      { "id": "M42", "name": "components", "url": "", "menulist": "" },
-                                      { "id": "M43", "name": "ElementUI", "url": "", "menulist": "" },
-                                      { "id": "M43", "name": "vuex", "url": "", "menulist": "" }
+                                      { "id": "M41", "name": "node.js", "url": "#/pageThree", "menulist":""},
+                                      { "id": "M42", "name": "java", "url": "", "menulist": "" },
+                                      { "id": "M43", "name": "python", "url": "", "menulist": "" }
                                  ]
-                             },
-                             { "id": "M5", "name": "webpack", "url": "", "menulist": 
-                                  [
-                                      { "id": "M51", "name": "基础", "url": "", "menulist":""},
-                                      { "id": "M52", "name": "插件", "url": "", "menulist": "" }
-                                  ]
-                              },
-                             { "id": "M6", "name": "axios", "url": "", "menulist": 
-                                  [
-                                      { "id": "M61", "name": "基础", "url": "", "menulist":""}
-                                  ]
-                              }
+                             }
                        ],
                     
-                        "第三方插件":
+                        "工具":
                         [
-                             { "id": "M7", "name": "拓扑图", "url": "", "menulist":
+                             { "id": "M7", "name": "开发工具", "url": "", "menulist":
                                  [
-                                      { "id": "M71", "name": "canvas", "url": "", "menulist":""},
-                                      { "id": "M72", "name": "twaver", "url": "", "menulist": "" }
+                                      { "id": "M71", "name": "webstorm", "url": "", "menulist":""},
+                                      { "id": "M72", "name": "sublime", "url": "", "menulist": "" },
+                                      { "id": "M72", "name": "idea", "url": "", "menulist": "" }
                                  ]
                              },
-                             { "id": "M9", "name": "统计图", "url": "", "menulist": 
+                             { "id": "M9", "name": "协同工具", "url": "", "menulist": 
                                   [
-                                      { "id": "M91", "name": "echarts", "url": "", "menulist":""},
-                                      { "id": "M92", "name": "highcharts", "url": "", "menulist": "" }
+                                      { "id": "M91", "name": "git", "url": "", "menulist":""},
+                                      { "id": "M92", "name": "svn", "url": "", "menulist": "" }
                                   ]
                               }
                        ]
@@ -111,32 +90,44 @@
             let _self = this;
             this.$root.Bus.$on("changeLeftMenu",data => {
                 _self.menuList = _self.menu[data];
+                this.selectedLeftNav = _self.menu[data][0]["menulist"][0]["name"];
+                window.location.href = window.location.href.split("#/")[0]+_self.menu[data][0]["menulist"][0]["url"];
             });
         },
         watch: {
             
         },
         methods:  { 
-            
+            selectLeftNav(selected){
+              this.selectedLeftNav = selected;
+            }
         }
-
     }
 </script>
 
 <style scoped>
-    .leftMenuContainer ul,li{
+    .leftMenuContainer ul{
         list-style: none; 
         margin-top: 10px;
     }
+    .leftMenuContainer li{
+        list-style: none; 
+    }
     .leftMenuContainer a{
-        color: #eee;    
+        color: #ffffff;    
         text-decoration: none;
-        margin-left: 5px;
+        margin-left: 60px;
     }
     .first-nav-item{
         padding-left: 20px;
     }
     .second-nav-group{
-        padding-left: 40px;
+        padding: 9px 0 10px 0;
+    }
+    .second-nav-group.active{
+        background-color: rgba(206,155,192,.4);
+    }
+    .second-nav-group.active a{
+        color:#eb0de2
     }
 </style>

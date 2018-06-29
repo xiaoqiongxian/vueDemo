@@ -1,11 +1,8 @@
-
 <template>
     <div class="header-container">
-        <div class="header-nav">
-            <li @click="changeLeft">前端基础</li>
-            <li @click="changeLeft">前端独立</li>
-            <li @click="changeLeft">第三方插件</li>
-        </div>
+        <ul class="header-nav">
+            <li v-for="item in headerNavList" :class="item.status" @click="changeLeft">{{item.text}}</li>
+        </ul>
     </div>
 </template>
 
@@ -13,15 +10,26 @@
     export default {
         data: function() {
             return {
-                
+                headerNavList:[
+                    {text:"前端",status:"active"},
+                    {text:"后端",status:""},
+                    {text:"工具",status:""}
+                ]
             }
         },
 
         methods:  {
             changeLeft: function(e) {
                 var _self = this
-                var text = $(event.currentTarget).text();
-                _self.$root.Bus.$emit('changeLeftMenu',text);
+                var selectedNav = $(event.currentTarget).text();
+                _self.headerNavList.map((nav)=>{
+                    if(nav.text === selectedNav){
+                        nav.status = "active";
+                    }else{
+                         nav.status = "";
+                    }
+                })
+                _self.$root.Bus.$emit('changeLeftMenu',selectedNav);
             }
         }
 
@@ -42,5 +50,12 @@
 
     .header-nav li{
         margin: 20px;
+        list-style: none;
+        cursor: pointer
+    }
+
+    .header-nav li.active{
+        cursor: default;
+        color: #eb0de2;
     }
 </style>

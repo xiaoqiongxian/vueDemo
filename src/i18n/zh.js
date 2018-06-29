@@ -1,4 +1,6 @@
 const messagesZh = {
-    hello: '你好,世界!'
+    leftNav: {
+    	base:"基础"
+    }
 }
 export default messagesZh
