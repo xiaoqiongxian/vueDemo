@@ -59,7 +59,17 @@ module.exports = {
           "jQuery":"jquery",
           "window.jQuery":"jquery"
         })
-    ]
+    ],
+    devServer:{
+        host:"127.0.0.1",
+        port:"8080",
+        proxy:{
+            '/data/sk/':{
+                target:"http://www.weather.com.cn",
+                changeOrigin:true
+            }
+        }
+    }
     
 }
 

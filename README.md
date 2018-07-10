@@ -1,7 +1,13 @@
-## Requirement
-* 安装nodeJs，版本要求6.10.x
+# vueDemo
+基于vue+vue-router+axios+element-ui的web端练习工程
 
-## Start the development server:
+## 运行（安装nodeJs6.10+）
+```bash
+git clone https://github.com/xiaoqiongxian/vueDemo.git
+```
+```bash
+cd vueDemo
+```
 ```bash
 npm install
 ```
